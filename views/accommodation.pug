@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1= accommodation.name
+  h5 Registered by #{author}
+  p #{accommodation.name} is #{accommodation.time} minutes away from campus
+  hr
+  h6 Contact details
+  p Telephone: #{accommodation.telephone}
+  p Telephone: #{accommodation.accEmail}
+  br
+  h6 Address
+  p Telephone: #{accommodation.address}
+  br
+  h6 Accomodation prices
+  p Single Room(s): #{accommodation.singlePrice}
+  p Sharing Room(s): #{accommodation.sharingPrice}
+  br
+  h6 Accepted Payment Methods
+
+  br
+  h6 Available Number of Rooms
+  p Male Room(s): #{accommodation.male}
+  p Female Room(s): #{accommodation.female}
+  
+  if user
+    hr
+    if user.id == accommodation.author
+      a.btn.btn-default(href='/accommodations/edit/'+accommodation._id) Edit
+      a.btn.btn-danger.delete-accommodation(href='#',data-id=accommodation._id) Delete
+   

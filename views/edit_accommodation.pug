@@ -1,0 +1,66 @@
+extends layout
+
+block content
+   h1 #{name}
+   form(method='POST', action='/accommodations/edit/'+ accommodation._id)
+     #form-groud
+       label Accommodation Name:
+       input.form-control(name='name',type='text',value= accommodation.name)
+     #form-groud
+      br
+      h4 Contact Details
+     
+      .row.g-3 
+          .col-sm-6
+            label Telephone:
+            input.form-control(name='telephone',type='number',value= accommodation.telephone)
+            
+          .col-sm-6         
+            label Email:
+            input.form-control(name='accEmail',type='text', value= accommodation.accEmail )
+     br
+     #form-groud
+       label Address:
+       textarea.form-control(name='address')=accommodation.address
+     #form-groud
+      label Time to Campus:
+      input.form-control(name='time',type='text' ,value= accommodation.time)
+     br
+     #form-groud
+      h4 Prices for Rooms
+     
+      .row.g-3 
+          .col-sm-6
+            label Single:
+            input.form-control(name='singlePrice',type='text',value= accommodation.singlePrice)
+            
+          .col-sm-6         
+            label Sharing:
+            input.form-control(name='sharingPrice',type='text',value= accommodation.sharingPrice )
+     #form-groud
+      hr.my-4
+      h4 Accepted Payments
+      .form-check
+          input.form-check-input(type='checkbox',name='nsfas',checked='#{accommodation.nsfas}', value='true', id='nsfas')
+          label NSFAS
+      .form-check
+          input.form-check-input(type='checkbox',name='card',checked='#{accommodation.card}', value='true',id='card')
+          label Card(credit, debit, Student Loan)
+      .form-check 
+          input.form-check-input(type='checkbox',name='cash',checked='#{accommodation.cash}', value='true',id='cash')
+          label Cash
+      hr.my-4
+      #form-groud
+      h5 Available Number of Rooms
+     
+      .row.g-3 
+          .col-sm-6
+            label Male:
+            input.form-control(name='male',type='text',value= accommodation.male)
+            
+          .col-sm-6         
+            label Female:
+            input.form-control(name='female',type='text',value= accommodation.female)
+  
+     br
+     input.btn.btn-primary(type='submit', value='Submit')

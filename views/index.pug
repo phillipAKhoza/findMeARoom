@@ -1,0 +1,8 @@
+extends layout
+
+block content
+   h1 #{name}
+   ul.list-group
+    each accommodation, i in accommodations
+      li.list-group-item
+        a(href="/accommodations/"+accommodation._id)=accommodation.name
